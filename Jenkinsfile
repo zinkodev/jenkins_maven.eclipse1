@@ -22,7 +22,6 @@ pipeline{
     echo "Start build" 
     bat "mvn install -DskipTests" 
    }
-   
     stage("scan"){ 
    steps{ 
     echo "Start scan" 
