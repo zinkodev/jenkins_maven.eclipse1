@@ -2,7 +2,7 @@ pipeline{
  agent any 
  tools {  
         maven 'maven 3.9.10'  
-        jdk 'OpenJdk11'  
+        jdk 'Java JDK 17'  
     } 
  stages{ 
   stage("clean"){ 
@@ -21,7 +21,13 @@ pipeline{
    steps{ 
     echo "Start build" 
     bat "mvn install -DskipTests" 
-   } 
+   }
+   
+    stage("scan"){ 
+   steps{ 
+    echo "Start scan" 
+    bat "mvn sonar:sonar" 
+   }  
   } 
  } 
 }
